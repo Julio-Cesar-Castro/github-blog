@@ -19,14 +19,14 @@ export const FormInfo = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  h1{
+  h1 {
     font-size: 1.125rem;
-    color: ${props => props.theme['base-subtitle']};
+    color: ${(props) => props.theme['base-subtitle']};
   }
 
-  span{
+  span {
     font-size: 0.875rem;
-    color: ${props => props.theme['base-span']};
+    color: ${(props) => props.theme['base-span']};
   }
 `
 
@@ -42,7 +42,7 @@ export const FormBox = styled.form`
     outline: none;
     padding: 12px 16px;
 
-    background: ${props => props.theme['base-input']};
-    color: ${props => props.theme['base-text']};
+    background: ${(props) => props.theme['base-input']};
+    color: ${(props) => props.theme['base-text']};
   }
 `

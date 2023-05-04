@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import BackgroundSVG from '../../assets/Background.svg'
+import BackgroundSVG from '../../../../assets/Background.svg'
 
 export const Background = styled.div`
   max-width: 1440px;

@@ -15,17 +15,17 @@ import {
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import GitIcon from '../../assets/Github.svg'
-import BuildIcon from '../../assets/Build.svg'
-import ProfileIcon from '../../assets/Profile.svg'
-/*import Tony from '../../assets/42015a20-6fb3-4370-974a-1b414be02721.jfif' */
+import GitIcon from '../../../../assets/Github.svg'
+import BuildIcon from '../../../..//assets/Build.svg'
+import ProfileIcon from '../../../..//assets/Profile.svg'
+import Tony from '../../../..//assets/42015a20-6fb3-4370-974a-1b414be02721.jfif'
 
 export function Profile() {
   return (
     <ProfileContainer>
       <ProfileModule>
         <Picture>
-          <img src={""} alt="" />
+          <img src={Tony} alt="" />
         </Picture>
 
         <ProfileInfo>

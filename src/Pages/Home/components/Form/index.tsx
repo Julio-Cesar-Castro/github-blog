@@ -9,7 +9,7 @@ export function Form() {
       </FormInfo>
 
       <FormBox action="">
-        <input type="text" placeholder='Filter your issues'/>
+        <input type="text" placeholder="Filter your issues" />
       </FormBox>
     </FormContainer>
   )
