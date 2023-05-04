@@ -33,4 +33,3 @@ export function Post() {
     </NavLink>
   )
 }
-3
