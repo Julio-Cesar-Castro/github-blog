@@ -1,9 +1,18 @@
 import {
+  ArticleBox,
+  ArticleContainer,
   BackButton,
   ButtonsContainer,
+  CommentContainer,
+  CommentLet,
   IssuesContainer,
   IssuesInfo,
   IssuesModule,
+  PComment,
+  PValue,
+  ParagraphBox,
+  SpanLet,
+  SpanValue,
   ViewGitButton,
 } from './styles'
 
@@ -58,6 +67,61 @@ export function Issues() {
           </IssuesInfo>
         </IssuesModule>
       </IssuesContainer>
+      <ArticleContainer>
+        <ArticleBox>
+          <div>
+            <ParagraphBox>
+              <p>
+                <strong>
+                  Programming languages all have built-in data structures, but
+                  these often differ from one language to another.
+                </strong>{' '}
+                This article attempts to list the built-in data structures
+                available in JavaScript and what properties they have. These can
+                be used to build other data structures. Wherever possible,
+                comparisons with other languages are drawn.
+              </p>
+              <div>
+                <span>Dynamic typing </span>
+                <p>
+                  {' '}
+                  JavaScript is a loosely typed and dynamic language. Variables
+                  in JavaScript are not directly associated with any particular
+                  value type, and any variable can be assigned (and re-assigned)
+                  values of all types:
+                </p>
+              </div>
+            </ParagraphBox>
+
+            <CommentContainer>
+              <div>
+                <SpanLet>let</SpanLet>
+                <PValue>foo =</PValue>
+                <PValue>
+                  <SpanValue>42</SpanValue> ;
+                </PValue>
+                <CommentLet>/ / foo is now a number</CommentLet>
+              </div>
+
+              <div>
+                <PValue>foo =</PValue>
+                <PValue>
+                  <SpanValue>&rsquo;bar&rsquo;</SpanValue> ;
+                </PValue>
+                <PComment>/ / foo is now a string</PComment>
+              </div>
+
+              <div>
+                <PValue>foo =</PValue>
+                <PValue>
+                  <SpanValue>true</SpanValue> ;
+                </PValue>
+                <PComment>/ / foo is now a boolean</PComment>
+              </div>
+            </CommentContainer>
+          </div>
+        </ArticleBox>
+      </ArticleContainer>
     </>
   )
 }

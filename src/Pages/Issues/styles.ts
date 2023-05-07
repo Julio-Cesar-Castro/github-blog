@@ -94,3 +94,84 @@ export const IssuesInfo = styled.div`
     }
   }
 `
+
+export const ArticleContainer = styled.div`
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+export const ArticleBox = styled.div`
+  width: 54rem;
+
+  padding: 2.5rem 2rem;
+
+  & > div {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+`
+
+export const ParagraphBox = styled.div`
+  div {
+    margin-top: 2rem;
+
+    span {
+      color: ${(props) => props.theme.blue};
+      font-size: 1rem;
+      text-decoration: underline;
+    }
+
+    p {
+      margin-top: 0.5rem;
+    }
+  }
+`
+
+export const CommentContainer = styled.div`
+  width: 50rem;
+
+  border-radius: 2px;
+  padding: 1rem;
+
+  background: ${(props) => props.theme['base-post']};
+
+  display: flex;
+  flex-direction: column;
+
+  div {
+    display: flex;
+    line-height: 160%;
+  }
+`
+
+export const CommentLet = styled.span`
+  margin-left: 2.5rem;
+  color: #4f6173;
+`
+
+export const SpanLet = styled.span`
+  color: #80abd6;
+  margin-right: 0.5rem;
+`
+
+export const SpanValue = styled.span`
+  color: #6ad445;
+  margin-left: 0.5rem;
+`
+export const PValue = styled.p`
+  color: #d5dce3;
+`
+
+export const PComment = styled.p`
+  color: #4f6173;
+  margin-left: 3.5rem;
+  line-height: 160%;
+`
