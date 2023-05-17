@@ -37,7 +37,7 @@ export const PostTitle = styled.h2`
   color: ${(props) => props.theme['base-title']};
 `
 
-export const Date = styled.span`
+export const DateSpan = styled.span`
   color: ${(props) => props.theme['base-span']};
 `
 

@@ -46,7 +46,7 @@ export const ProfileInfo = styled.div`
   height: 8.813rem;
 `
 
-export const UnderButton = styled.a`
+export const UnderButton = styled.div`
   border-top: 2px solid transparent;
   border-bottom: 2px solid transparent;
 

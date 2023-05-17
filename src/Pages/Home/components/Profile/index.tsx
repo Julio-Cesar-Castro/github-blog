@@ -20,6 +20,8 @@ import BuildIcon from '../../../..//assets/Build.svg'
 import ProfileIcon from '../../../..//assets/Profile.svg'
 import { useEffect, useState } from 'react'
 
+import axios from 'axios'
+
 interface DataTypes {
   id: number
   avatar_url?: string
@@ -35,10 +37,8 @@ export function Profile() {
   const [profile, setProfile] = useState<DataTypes>()
 
   useEffect(() => {
-    fetch('https://api.github.com/users/Gabriel-Duarte-Dev').then((res) => {
-      return res.json().then((data) => {
-        setProfile(data)
-      })
+    axios.get('https://api.github.com/users/JulioCastro240902').then((res) => {
+      return setProfile(res.data)
     })
   }, [setProfile])
 

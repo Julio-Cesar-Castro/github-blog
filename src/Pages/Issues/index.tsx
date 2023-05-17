@@ -16,7 +16,7 @@ import {
   ViewGitButton,
 } from './styles'
 
-import { NavLink } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 
 import ArrowIcon from '../../assets/Arrow.svg'
 import CommentIcon from '../../assets/Comment.svg'
@@ -26,7 +26,46 @@ import GitIcon from '../../assets/Github.svg'
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+
+import ReactMarkDown from 'react-markdown'
+
+import { formatDistanceToNow } from 'date-fns'
+
+import ptBR from 'date-fns/locale/pt-BR'
+
+interface RepoProps {
+  number: number
+  repository_url: string
+  title: string
+  user: { login: string }
+  created_at: string
+  body: string
+  comments: number
+}
+
+type ParamsIdProps = {
+  id: string
+}
+
 export function Issues() {
+  const [repo, setRepo] = useState<RepoProps>()
+
+  const { id } = useParams<ParamsIdProps>()
+
+  useEffect(() => {
+    axios
+      .get('https://api.github.com/search/issues', {
+        params: {
+          q: 'repo:JulioCastro240902/github-blog/issues',
+        },
+      })
+      .then(({ data: { items } }) => {
+        setRepo(items.find((item: RepoProps) => item.number === +(id ?? 1)))
+      })
+  }, [])
+
   return (
     <>
       <IssuesContainer>
@@ -41,7 +80,7 @@ export function Issues() {
             </NavLink>
 
             <ViewGitButton>
-              <span>Ver no github</span>
+              <a href={repo?.repository_url}>Ver no github</a>
               <FontAwesomeIcon
                 icon={faArrowUpRightFromSquare}
                 color="#3294F8"
@@ -49,20 +88,25 @@ export function Issues() {
               />
             </ViewGitButton>
           </ButtonsContainer>
-          <h2>JavaScript data types and data structures</h2>
+          <h2>{repo?.title}</h2>
 
           <IssuesInfo>
             <div>
               <img src={GitIcon} alt="" />
-              <span>cameronwll</span>
+              <span>{repo?.user.login}</span>
             </div>
             <div>
               <img src={CalendarIcon} alt="" />
-              <span>Há 1 dia</span>
+              <span>
+                {formatDistanceToNow(new Date(repo?.created_at ?? new Date()), {
+                  addSuffix: true,
+                  locale: ptBR,
+                })}
+              </span>
             </div>
             <div>
               <img src={CommentIcon} alt="" />
-              <span>5 comentários</span>
+              <span>{repo?.comments} comentários</span>
             </div>
           </IssuesInfo>
         </IssuesModule>
@@ -71,26 +115,7 @@ export function Issues() {
         <ArticleBox>
           <div>
             <ParagraphBox>
-              <p>
-                <strong>
-                  Programming languages all have built-in data structures, but
-                  these often differ from one language to another.
-                </strong>{' '}
-                This article attempts to list the built-in data structures
-                available in JavaScript and what properties they have. These can
-                be used to build other data structures. Wherever possible,
-                comparisons with other languages are drawn.
-              </p>
-              <div>
-                <span>Dynamic typing </span>
-                <p>
-                  {' '}
-                  JavaScript is a loosely typed and dynamic language. Variables
-                  in JavaScript are not directly associated with any particular
-                  value type, and any variable can be assigned (and re-assigned)
-                  values of all types:
-                </p>
-              </div>
+              <ReactMarkDown>{repo?.body ?? ''}</ReactMarkDown>
             </ParagraphBox>
 
             <CommentContainer>
